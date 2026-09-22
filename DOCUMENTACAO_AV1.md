@@ -1430,17 +1430,13 @@ describe('Custom Hook — useCampaigns', () => {
 
 ---
 
-> 📌 **[INSERIR AQUI]** — Print do terminal exibindo o resultado do `npm test` com todos os 46 testes passando (status verde).
-
----
-
 ## 4. LINKS DE ACESSO FINAL
 
 | Recurso | Link |
 |---|---|
-| 🐙 Repositório GitHub (público) | `https://github.com/[usuario]/projeto-integrador-fmp` |
-| 🚀 Deploy — Aplicação React (Vite) | `https://fmp-doacoes.vercel.app` |
-| 🌐 Deploy — Página Institucional (Next.js) | `https://fmp-institucional.vercel.app` |
+| 🐙 Repositório GitHub (público) | `https://github.com/SchutzL22/projetointegradornodereact.git` |
+| 🚀 Deploy — Aplicação React (Vite) | `[https://fmp-doacoes.vercel.app](https://vercel.com/schutzls-projects/pagina-institucional/Giz2TDm9Z83JBuv9sG3jVMXAVnFz)` |
+| 🌐 Deploy — Página Institucional (Next.js) | `[https://fmp-institucional.vercel.app](https://pagina-institucional-psi.vercel.app/)` |
 | 🏛️ Portal Institucional FMP | `https://www.fmpsc.edu.br` |
 
 > **Nota:** Substituir os placeholders acima pelos links reais após realização do deploy no GitHub e Vercel.
