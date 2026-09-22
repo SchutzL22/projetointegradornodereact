@@ -1,0 +1,110 @@
+// ============================================================
+// _reset.scss — Reset e Base Global
+// ============================================================
+@use 'variables' as *;
+
+// Box Model universal — Aula 02
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $color-gray-800;
+  background-color: $color-gray-50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// --- Headings ---
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $color-gray-900;
+}
+
+h1 { font-size: $font-size-3xl; }
+h2 { font-size: $font-size-2xl; }
+h3 { font-size: $font-size-xl; }
+h4 { font-size: $font-size-lg; }
+h5 { font-size: $font-size-md; }
+h6 { font-size: $font-size-base; }
+
+// --- Links ---
+a {
+  color: $color-primary-light;
+  text-decoration: none;
+  transition: $transition-fast;
+
+  &:hover {
+    color: $color-primary;
+    text-decoration: underline;
+  }
+}
+
+// --- Imagens ---
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// --- Listas ---
+ul, ol {
+  list-style: none;
+}
+
+// --- Formulários ---
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+// --- Foco acessível ---
+:focus-visible {
+  outline: 2px solid $color-primary-light;
+  outline-offset: 2px;
+}
+
+// --- Scrollbar personalizada ---
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-gray-400;
+  border-radius: $border-radius-full;
+
+  &:hover {
+    background: $color-gray-500;
+  }
+}
+
+// --- Seleção de texto ---
+::selection {
+  background-color: rgba($color-primary-light, 0.2);
+  color: $color-primary-dark;
+}

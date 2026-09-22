@@ -1,0 +1,291 @@
+// Campanhas.module.scss
+@use 'sass:color';
+
+.page {
+  min-height: 100vh;
+  padding-bottom: $spacing-16;
+}
+
+.container {
+  @include container;
+}
+
+// ── Cabeçalho ────────────────────────────────────────────────
+.pageHeader {
+  background: $gradient-hero;
+  padding: $spacing-12 0 $spacing-10;
+  margin-bottom: $spacing-8;
+
+  @include respond-to('md') {
+    padding: $spacing-16 0 $spacing-12;
+  }
+}
+
+.headerContent {
+  @include flex-row($gap: $spacing-4);
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.pageTitle {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-extrabold;
+  color: $color-white;
+  margin-bottom: $spacing-2;
+
+  @include respond-to('md') {
+    font-size: $font-size-3xl;
+  }
+
+  span {
+    color: $color-accent;
+  }
+}
+
+.pageSubtitle {
+  font-size: $font-size-base;
+  color: rgba($color-white, 0.85);
+}
+
+// ── Banner Resiliente / Offline ──────────────────────────────
+.offlineBanner {
+  display: flex;
+  align-items: center;
+  gap: $spacing-3;
+  padding: $spacing-3 $spacing-5;
+  background: rgba($color-accent, 0.12);
+  border: 1.5px solid rgba($color-accent, 0.4);
+  border-radius: $border-radius-xl;
+  margin-bottom: $spacing-6;
+  color: #8a5700;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+
+  strong {
+    color: #633e00;
+  }
+}
+
+// ── Barra de Filtros (Mobile-First) ──────────────────────────
+.filtersBar {
+  background: $color-white;
+  border: 1px solid $color-gray-200;
+  border-radius: $border-radius-xl;
+  padding: $spacing-5;
+  margin-bottom: $spacing-6;
+  @include flex-col($gap: $spacing-4);
+  box-shadow: $shadow-sm;
+
+  @include respond-to('md') {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-4;
+  }
+}
+
+.searchWrapper {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: $spacing-4;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.searchInput {
+  @include input-style;
+  padding-left: $spacing-10;
+  background: $color-gray-50;
+
+  &:focus-visible {
+    background: $color-white;
+    border-color: $color-primary-light;
+    box-shadow: 0 0 0 3px rgba($color-primary-light, 0.2);
+  }
+}
+
+.filterGroup {
+  @include flex-row($gap: $spacing-2);
+  flex-wrap: wrap;
+}
+
+.filterLabel {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-gray-700;
+  white-space: nowrap;
+}
+
+.filterButtons {
+  @include flex-row($gap: $spacing-2, $wrap: wrap);
+}
+
+.filterBtn {
+  padding: $spacing-1 $spacing-3;
+  border: 1.5px solid $color-gray-300;
+  border-radius: $border-radius-full;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-gray-700;
+  background: $color-white;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    border-color: $color-primary-light;
+    color: $color-primary;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+
+  &Active {
+    background: $color-primary;
+    border-color: $color-primary;
+    color: $color-white;
+
+    &:hover {
+      background: $color-primary-dark;
+      border-color: $color-primary-dark;
+      color: $color-white;
+    }
+  }
+}
+
+.filterSelect {
+  @include input-style;
+  width: auto;
+  min-width: 160px;
+  padding: $spacing-2 $spacing-4;
+  font-size: $font-size-sm;
+  cursor: pointer;
+
+  &:focus-visible {
+    border-color: $color-primary-light;
+    box-shadow: 0 0 0 3px rgba($color-primary-light, 0.2);
+  }
+}
+
+.clearBtn {
+  padding: $spacing-2 $spacing-4;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-danger;
+  border: 1.5px solid $color-danger;
+  border-radius: $border-radius-full;
+  background: $color-white;
+  cursor: pointer;
+  transition: $transition-fast;
+  white-space: nowrap;
+
+  &:hover {
+    background: $color-danger;
+    color: $color-white;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-danger;
+    outline-offset: 2px;
+  }
+}
+
+// ── Resultados ───────────────────────────────────────────────
+.resultsInfo {
+  font-size: $font-size-sm;
+  color: $color-gray-600;
+  margin-bottom: $spacing-6;
+
+  strong {
+    color: $color-primary;
+    font-weight: $font-weight-bold;
+  }
+}
+
+// ── Grid ─────────────────────────────────────────────────────
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-6;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cardSkeleton {
+  height: 380px;
+  border-radius: $border-radius-xl;
+  background: linear-gradient(90deg, $color-gray-200 25%, $color-gray-100 37%, $color-gray-200 63%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: calc(400px + 100%) 0;
+  }
+}
+
+// ── Estado vazio ─────────────────────────────────────────────
+.emptyState {
+  @include flex-col($gap: $spacing-4);
+  align-items: center;
+  text-align: center;
+  padding: $spacing-16 $spacing-8;
+  background: $color-white;
+  border-radius: $border-radius-2xl;
+  border: 2px dashed $color-gray-300;
+
+  h3 {
+    font-size: $font-size-xl;
+    color: $color-gray-800;
+  }
+
+  p {
+    font-size: $font-size-base;
+    color: $color-gray-500;
+  }
+}
+
+.emptyIcon {
+  font-size: 3rem;
+}
+
+.emptyBtn {
+  @include btn-style($color-primary, $color-white, $color-primary-dark);
+  margin-top: $spacing-2;
+}
+
+// ── Erro ─────────────────────────────────────────────────────
+.errorBox {
+  @include flex-row($gap: $spacing-4);
+  background: $color-danger-light;
+  color: color.adjust($color-danger, $lightness: -20%);
+  padding: $spacing-4 $spacing-5;
+  border-radius: $border-radius-lg;
+  margin-bottom: $spacing-6;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.retryBtn {
+  @include btn-style($color-danger, $color-white, color.adjust($color-danger, $lightness: -10%));
+  font-size: $font-size-xs;
+  padding: $spacing-2 $spacing-4;
+}

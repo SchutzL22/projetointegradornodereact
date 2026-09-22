@@ -1,0 +1,263 @@
+// ============================================================
+// main.scss — Arquivo Principal de Estilos
+// ============================================================
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'reset';
+
+// --- Google Fonts ---
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+// --- Utilitários globais ---
+.container {
+  @include container;
+}
+
+.section {
+  padding-block: $spacing-16;
+
+  @include respond-to('md') {
+    padding-block: $spacing-20;
+  }
+
+  @include respond-to('lg') {
+    padding-block: $spacing-24;
+  }
+
+  &--hero {
+    padding-block: $spacing-20;
+    background: $gradient-hero;
+    color: $color-white;
+
+    @include respond-to('lg') {
+      padding-block: $spacing-24;
+    }
+  }
+
+  &--gray {
+    background-color: $color-gray-100;
+  }
+}
+
+.section-title {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-extrabold;
+  color: $color-gray-900;
+  text-align: center;
+  margin-bottom: $spacing-3;
+
+  @include respond-to('md') {
+    font-size: $font-size-3xl;
+  }
+
+  span {
+    @include text-gradient;
+  }
+}
+
+.section-subtitle {
+  font-size: $font-size-base;
+  color: $color-gray-600;
+  text-align: center;
+  max-width: 600px;
+  margin-inline: auto;
+  margin-bottom: $spacing-12;
+  line-height: $line-height-relaxed;
+
+  @include respond-to('md') {
+    font-size: $font-size-md;
+  }
+}
+
+// --- Botões Globais (Classes utilitárias) ---
+.btn {
+  @include btn-style;
+
+  &--primary {
+    @include btn-style($color-primary, $color-white, $color-primary-dark);
+  }
+
+  &--secondary {
+    @include btn-style($color-secondary, $color-white, color.adjust($color-secondary, $lightness: -10%));
+  }
+
+  &--danger {
+    @include btn-style($color-danger, $color-white, color.adjust($color-danger, $lightness: -10%));
+  }
+
+  &--success {
+    @include btn-style($color-success, $color-white, color.adjust($color-success, $lightness: -10%));
+  }
+
+  &--sm {
+    padding: $spacing-2 $spacing-4;
+    font-size: $font-size-xs;
+  }
+
+  &--lg {
+    padding: $spacing-4 $spacing-8;
+    font-size: $font-size-md;
+    border-radius: $border-radius-xl;
+  }
+
+  &--full {
+    width: 100%;
+  }
+}
+
+// --- Grid de cards ---
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-6;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// --- Badges globais ---
+.badge {
+  &--active {
+    @include badge($color-success-light, $color-success);
+  }
+
+  &--inactive {
+    @include badge($color-gray-200, $color-gray-600);
+  }
+
+  &--urgent {
+    @include badge($color-danger-light, $color-danger);
+  }
+
+  &--warning {
+    @include badge($color-warning-light, color.adjust($color-warning, $lightness: -30%));
+  }
+
+  &--info {
+    @include badge($color-info-light, $color-info);
+  }
+}
+
+// --- Alertas ---
+.alert {
+  padding: $spacing-4;
+  border-radius: $border-radius-lg;
+  border-left: 4px solid transparent;
+  font-size: $font-size-sm;
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-3;
+
+  &--success {
+    background-color: $color-success-light;
+    border-color: $color-success;
+    color: color.adjust($color-success, $lightness: -15%);
+  }
+
+  &--error {
+    background-color: $color-danger-light;
+    border-color: $color-danger;
+    color: color.adjust($color-danger, $lightness: -15%);
+  }
+
+  &--warning {
+    background-color: $color-warning-light;
+    border-color: $color-warning;
+    color: color.adjust($color-warning, $lightness: -40%);
+  }
+
+  &--info {
+    background-color: $color-info-light;
+    border-color: $color-info;
+    color: color.adjust($color-info, $lightness: -20%);
+  }
+}
+
+// --- Loading Skeleton ---
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, $color-gray-200 25%, $color-gray-100 37%, $color-gray-200 63%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: $border-radius-md;
+}
+
+// --- Spinner ---
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba($color-primary, 0.2);
+  border-top-color: $color-primary;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+// --- Page wrapper ---
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: $header-height;
+
+  @include respond-to('md') {
+    padding-top: $header-height-md;
+  }
+}
+
+main {
+  flex: 1;
+}
+
+// --- Toast notifications ---
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.toast {
+  position: fixed;
+  bottom: $spacing-6;
+  right: $spacing-4;
+  z-index: $z-toast;
+  padding: $spacing-4 $spacing-6;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-xl;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  animation: slideIn 0.3s ease;
+  max-width: 380px;
+
+  @include respond-to('md') {
+    right: $spacing-6;
+  }
+
+  &--success {
+    background: $color-success;
+    color: $color-white;
+  }
+
+  &--error {
+    background: $color-danger;
+    color: $color-white;
+  }
+}

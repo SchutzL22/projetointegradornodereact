@@ -1,0 +1,199 @@
+// ============================================================
+// CampaignCard.module.scss
+// Aula 02: Nesting SCSS + Box Model + Flexbox + hover animation
+// ============================================================
+@use 'sass:color';
+
+.card {
+  @include card-base;
+  display: flex;
+  flex-direction: column;
+  background: $color-white;
+  padding: 0;
+  position: relative;
+  cursor: default;
+
+  // Borda superior colorida
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: $gradient-primary;
+    border-radius: $border-radius-xl $border-radius-xl 0 0;
+    transition: $transition-base;
+  }
+
+  &:hover::before {
+    height: 6px;
+  }
+
+  &Inactive {
+    opacity: 0.7;
+
+    &::before {
+      background: $color-gray-400;
+    }
+
+    &:hover {
+      transform: none;
+      box-shadow: $shadow-md;
+    }
+  }
+}
+
+// --- Cabeçalho ---
+.cardHeader {
+  @include flex-row($gap: $spacing-2, $wrap: wrap);
+  justify-content: space-between;
+  padding: $spacing-4 $spacing-5 $spacing-3;
+  border-bottom: 1px solid $color-gray-100;
+}
+
+.categoryBadge {
+  @include flex-row($gap: $spacing-2);
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  background: rgba($color-primary, 0.08);
+  padding: $spacing-1 $spacing-3;
+  border-radius: $border-radius-full;
+  letter-spacing: 0.03em;
+}
+
+.badges {
+  @include flex-row($gap: $spacing-2, $wrap: wrap);
+}
+
+.badgeActive {
+  @include badge($color-success-light, $color-success);
+}
+
+.badgeInactive {
+  @include badge($color-gray-200, $color-gray-600);
+}
+
+.badgeUrgent {
+  @include badge($color-danger-light, $color-danger);
+  animation: pulse-badge 2s ease-in-out infinite;
+
+  @keyframes pulse-badge {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+}
+
+// --- Corpo ---
+.cardBody {
+  @include flex-col($gap: $spacing-4);
+  padding: $spacing-5;
+  flex: 1;
+}
+
+.title {
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $color-gray-900;
+  line-height: $line-height-snug;
+  @include truncate(2);
+}
+
+.description {
+  font-size: $font-size-sm;
+  color: $color-gray-600;
+  line-height: $line-height-relaxed;
+  @include truncate(3);
+  flex: 1;
+}
+
+// --- Progresso ---
+.progressSection {
+  @include flex-col($gap: $spacing-2);
+}
+
+.progressHeader {
+  @include flex-row;
+  justify-content: space-between;
+}
+
+.progressLabel {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-gray-600;
+}
+
+.progressPercent {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: $color-gray-200;
+  border-radius: $border-radius-full;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: $gradient-primary;
+  border-radius: $border-radius-full;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 4px;
+
+  &Complete {
+    background: linear-gradient(90deg, $color-success, color.adjust($color-success, $lightness: -10%));
+  }
+}
+
+.progressNumbers {
+  @include flex-row;
+  justify-content: space-between;
+  font-size: $font-size-xs;
+  color: $color-gray-500;
+}
+
+// --- Rodapé ---
+.cardFooter {
+  @include flex-col($gap: $spacing-4);
+  padding: $spacing-4 $spacing-5;
+  background: $color-gray-50;
+  border-top: 1px solid $color-gray-100;
+  border-radius: 0 0 $border-radius-xl $border-radius-xl;
+}
+
+.metaInfo {
+  @include flex-col($gap: $spacing-2);
+}
+
+.metaItem {
+  @include flex-row($gap: $spacing-2);
+  font-size: $font-size-xs;
+  color: $color-gray-600;
+
+  span:last-child {
+    @include truncate(1);
+  }
+}
+
+.metaIcon {
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.btnDoar {
+  @include btn-style($color-primary, $color-white, $color-primary-dark);
+  font-size: $font-size-xs;
+  padding: $spacing-2 $spacing-4;
+  border-radius: $border-radius-lg;
+  text-align: center;
+  justify-content: center;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

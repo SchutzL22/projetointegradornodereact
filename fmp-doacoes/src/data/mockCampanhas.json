@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "titulo": "Campanha Alimentos 2026",
+    "descricao": "Arrecadação emergencial de alimentos não perecíveis para comunidades vulneráveis de Palhoça e região metropolitana.",
+    "categoria": "Alimentos",
+    "status": "ativa",
+    "urgente": true,
+    "dataLimite": "2026-11-30T23:59:59.000Z",
+    "meta": 300,
+    "arrecadado": 215,
+    "horasPorUnidade": 2,
+    "localEntrega": "Bloco A — Sala da COPER / FMP"
+  },
+  {
+    "id": 2,
+    "titulo": "Campanha do Agasalho e Cobertores",
+    "descricao": "Coleta de roupas de frio, casacos, meias e cobertores em bom estado para o inverno catarinense.",
+    "categoria": "Roupas",
+    "status": "ativa",
+    "urgente": true,
+    "dataLimite": "2026-10-15T23:59:59.000Z",
+    "meta": 250,
+    "arrecadado": 160,
+    "horasPorUnidade": 1,
+    "localEntrega": "Biblioteca Central FMP"
+  },
+  {
+    "id": 3,
+    "titulo": "Campanha de Higiene e Dignidade",
+    "descricao": "Kits de higiene pessoal contendo sabonetes, pastas dentais, escovas, absorventes e álcool em gel para abrigos municipais.",
+    "categoria": "Higiene",
+    "status": "ativa",
+    "urgente": false,
+    "dataLimite": "2026-12-10T23:59:59.000Z",
+    "meta": 200,
+    "arrecadado": 98,
+    "horasPorUnidade": 1.5,
+    "localEntrega": "Secretaria Acadêmica FMP"
+  },
+  {
+    "id": 4,
+    "titulo": "Campanha Material Escolar Solidário",
+    "descricao": "Cadernos, lápis de cor, canetas, mochilas e estojos para alunos de escolas públicas da rede de Palhoça.",
+    "categoria": "Material Escolar",
+    "status": "ativa",
+    "urgente": false,
+    "dataLimite": "2026-11-20T23:59:59.000Z",
+    "meta": 180,
+    "arrecadado": 142,
+    "horasPorUnidade": 1,
+    "localEntrega": "Portaria Principal FMP"
+  },
+  {
+    "id": 5,
+    "titulo": "Campanha Brinquedos de Sorrisos",
+    "descricao": "Doação de brinquedos novos ou usados em ótimo estado para distribuição no Dia das Crianças e Natal Solidário.",
+    "categoria": "Brinquedos",
+    "status": "ativa",
+    "urgente": false,
+    "dataLimite": "2026-12-18T23:59:59.000Z",
+    "meta": 150,
+    "arrecadado": 85,
+    "horasPorUnidade": 3,
+    "localEntrega": "Bloco B — Espaço de Convivência"
+  },
+  {
+    "id": 6,
+    "titulo": "Campanha Páscoa Solidária FMP",
+    "descricao": "Campanha especial encerrada com sucesso que distribuiu chocolates e kits recreativos para instituições infantis.",
+    "categoria": "Alimentos",
+    "status": "encerrada",
+    "urgente": false,
+    "dataLimite": "2026-04-12T23:59:59.000Z",
+    "meta": 200,
+    "arrecadado": 218,
+    "horasPorUnidade": 2,
+    "localEntrega": "Bloco A — Sala da COPER"
+  }
+]

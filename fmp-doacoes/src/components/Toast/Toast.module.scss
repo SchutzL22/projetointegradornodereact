@@ -1,0 +1,189 @@
+// ============================================================
+// Toast.module.scss — Alertas flutuantes modernos e acessíveis
+// ============================================================
+
+.toastContainer {
+  position: fixed;
+  top: $spacing-6;
+  right: $spacing-6;
+  z-index: $z-toast;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3;
+  max-width: 420px;
+  width: calc(100vw - #{$spacing-8});
+  pointer-events: none;
+
+  @media (max-width: $bp-sm) {
+    top: $spacing-4;
+    right: $spacing-4;
+    left: $spacing-4;
+    width: auto;
+  }
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-3;
+  padding: $spacing-4 $spacing-5;
+  border-radius: $border-radius-xl;
+  background: $color-white;
+  box-shadow: $shadow-xl, 0 10px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid $color-gray-200;
+  position: relative;
+  overflow: hidden;
+  animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+  }
+
+  &.removing {
+    animation: slideOut 0.3s ease forwards;
+  }
+
+  // Variações de Status
+  &.success {
+    border-left: 5px solid $color-success;
+    .iconWrapper {
+      color: $color-success;
+      background: $color-success-light;
+    }
+    .progressBar {
+      background: $color-success;
+    }
+  }
+
+  &.error {
+    border-left: 5px solid $color-danger;
+    .iconWrapper {
+      color: $color-danger;
+      background: $color-danger-light;
+    }
+    .progressBar {
+      background: $color-danger;
+    }
+  }
+
+  &.info {
+    border-left: 5px solid $color-secondary;
+    .iconWrapper {
+      color: $color-secondary;
+      background: rgba($color-secondary, 0.15);
+    }
+    .progressBar {
+      background: $color-secondary;
+    }
+  }
+
+  &.warning {
+    border-left: 5px solid $color-accent;
+    .iconWrapper {
+      color: #b37400;
+      background: $color-warning-light;
+    }
+    .progressBar {
+      background: $color-accent;
+    }
+  }
+}
+
+.iconWrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  @include flex-center;
+  flex-shrink: 0;
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $color-gray-900;
+  margin-bottom: 2px;
+  line-height: $line-height-tight;
+}
+
+.message {
+  font-size: $font-size-xs;
+  color: $color-gray-600;
+  line-height: $line-height-normal;
+  word-break: break-word;
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  color: $color-gray-400;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: $spacing-1;
+  border-radius: $border-radius-sm;
+  line-height: 1;
+  transition: $transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: $color-gray-700;
+    background: $color-gray-100;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform-origin: left;
+  animation: shrinkWidth linear forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%) scale(0.9);
+  }
+}
+
+@keyframes shrinkWidth {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}

@@ -1,0 +1,53 @@
+@use 'sass:color';
+
+.badge {
+  @include flex-row($gap: $spacing-3);
+  padding: $spacing-3 $spacing-5;
+  border-radius: $border-radius-xl;
+  border: 2px solid transparent;
+  transition: $transition-base;
+
+  &--sm { padding: $spacing-2 $spacing-3; }
+  &--lg { padding: $spacing-4 $spacing-6; }
+
+  &--default {
+    background: rgba($color-primary, 0.08);
+    border-color: rgba($color-primary, 0.2);
+    color: $color-primary;
+  }
+
+  &--blue {
+    background: linear-gradient(135deg, rgba($color-primary, 0.1), rgba($color-secondary, 0.08));
+    border-color: rgba($color-secondary, 0.3);
+    color: $color-primary;
+  }
+
+  &--gold {
+    background: linear-gradient(135deg, rgba($color-accent, 0.12), rgba($color-accent, 0.05));
+    border-color: rgba($color-accent, 0.4);
+    color: color.adjust($color-accent, $lightness: -20%);
+  }
+}
+
+.icon {
+  font-size: 1.25rem;
+}
+
+.content {
+  @include flex-col($gap: 0);
+}
+
+.value {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-extrabold;
+  line-height: 1;
+
+  .badge--sm & { font-size: $font-size-base; }
+  .badge--lg & { font-size: $font-size-3xl; }
+}
+
+.label {
+  font-size: $font-size-xs;
+  opacity: 0.75;
+  font-weight: $font-weight-medium;
+}

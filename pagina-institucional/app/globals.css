@@ -1,0 +1,71 @@
+/* ============================================================
+   globals.css — Estilos Globais + Variáveis FMP
+   Next.js App Router · Tailwind CSS v4
+   ============================================================ */
+
+/* Importa o Tailwind CSS v4 (via @tailwindcss/postcss) */
+@import "tailwindcss";
+
+/* ── Variáveis de Cor FMP (Tailwind CSS v4 inline theme) ──── */
+@theme {
+  /* Paleta institucional FMP */
+  --color-fmp-900: #002855;
+  --color-fmp-800: #003f7d;
+  --color-fmp-700: #005aaa;
+  --color-fmp-600: #0073cc;
+  --color-fmp-500: #1a8fe0;
+  --color-fmp-400: #42a9f0;
+  --color-fmp-100: #dff0ff;
+  --color-fmp-50:  #f0f8ff;
+
+  /* Amarelo destaque FMP */
+  --color-fmp-gold-400: #fbbf24;
+  --color-fmp-gold-300: #fcd34d;
+
+  /* Fonte padrão */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Reset e Base ─────────────────────────────────────────── */
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Foco acessível (padrão FMP) ─────────────────────────── */
+*:focus-visible {
+  outline: 3px solid var(--color-fmp-600);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Skip link de acessibilidade ─────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--color-fmp-800);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}

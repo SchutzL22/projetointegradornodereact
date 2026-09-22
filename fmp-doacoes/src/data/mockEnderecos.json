@@ -1,0 +1,47 @@
+{
+  "88130000": {
+    "cep": "88130-000",
+    "logradouro": "Rua João Pereira dos Santos",
+    "complemento": "Campus FMP - Ponte do Imaruim",
+    "bairro": "Ponte do Imaruim",
+    "cidade": "Palhoça",
+    "estado": "SC",
+    "ibge": "4211900"
+  },
+  "88132149": {
+    "cep": "88132-149",
+    "logradouro": "Avenida Pedra Branca",
+    "complemento": "Edifício Universitário",
+    "bairro": "Cidade Universitária Pedra Branca",
+    "cidade": "Palhoça",
+    "estado": "SC",
+    "ibge": "4211900"
+  },
+  "88130010": {
+    "cep": "88130-010",
+    "logradouro": "Avenida Barão do Rio Branco",
+    "complemento": "Sala COPER",
+    "bairro": "Centro",
+    "cidade": "Palhoça",
+    "estado": "SC",
+    "ibge": "4211900"
+  },
+  "88010000": {
+    "cep": "88010-000",
+    "logradouro": "Praça XV de Novembro",
+    "complemento": "",
+    "bairro": "Centro",
+    "cidade": "Florianópolis",
+    "estado": "SC",
+    "ibge": "4205407"
+  },
+  "01001000": {
+    "cep": "01001-000",
+    "logradouro": "Praça da Sé",
+    "complemento": "lado ímpar",
+    "bairro": "Sé",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "ibge": "3550308"
+  }
+}

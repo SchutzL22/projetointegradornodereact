@@ -1,0 +1,109 @@
+// Footer.module.scss
+
+.footer {
+  background: $color-primary-dark;
+  color: rgba($color-white, 0.75);
+  padding-top: $spacing-12;
+  padding-bottom: $spacing-6;
+  margin-top: auto;
+}
+
+.container {
+  @include container;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-8;
+  margin-bottom: $spacing-10;
+
+  @include respond-to('md') {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.brand {
+  @include flex-col($gap: $spacing-4);
+}
+
+.logo {
+  @include flex-row($gap: $spacing-3);
+}
+
+.logoIcon {
+  font-size: 1.5rem;
+  width: 44px;
+  height: 44px;
+  @include flex-center;
+  background: rgba($color-white, 0.1);
+  border-radius: $border-radius-lg;
+}
+
+.logoName {
+  display: block;
+  font-size: $font-size-base;
+  font-weight: $font-weight-bold;
+  color: $color-white;
+}
+
+.logoSub {
+  display: block;
+  font-size: $font-size-xs;
+  color: rgba($color-white, 0.5);
+}
+
+.desc {
+  font-size: $font-size-sm;
+  line-height: $line-height-relaxed;
+  max-width: 320px;
+}
+
+.links {
+  @include flex-col($gap: $spacing-4);
+}
+
+.linksTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $color-white;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.linksList {
+  @include flex-col($gap: $spacing-3);
+
+  li {
+    font-size: $font-size-sm;
+  }
+
+  a, span {
+    color: rgba($color-white, 0.65);
+    text-decoration: none;
+    transition: $transition-fast;
+
+    &:hover {
+      color: $color-white;
+      text-decoration: none;
+    }
+  }
+}
+
+.bottom {
+  padding-top: $spacing-6;
+  border-top: 1px solid rgba($color-white, 0.1);
+  @include flex-col($gap: $spacing-2);
+  text-align: center;
+
+  @include respond-to('md') {
+    @include flex-row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.copyright, .team {
+  font-size: $font-size-xs;
+  color: rgba($color-white, 0.45);
+}
