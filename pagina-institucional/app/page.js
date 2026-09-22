@@ -104,23 +104,20 @@ const DIFERENCIAIS = [
 
 /** Integrantes da equipe */
 const EQUIPE = [
-  { nome: 'Eduardo Silva',             papel: 'Desenvolvedor Full Stack' },
-  { nome: 'Davi Aravechia',            papel: 'Desenvolvedor Full Stack' },
+  { nome: 'Eduardo Silva',            papel: 'Desenvolvedor Full Stack' },
+  { nome: 'Davi Aravechia',           papel: 'Desenvolvedor Full Stack' },
   { nome: 'Lucas Alexandre V. Schutz', papel: 'Desenvolvedor Full Stack' },
-  { nome: 'Vitor Emanuel',             papel: 'Desenvolvedor Full Stack' },
 ];
 
-// ── URL base do sistema React/Vite ───────────────────────────
-const SISTEMA_URL = 'http://localhost:5173';
+// ── URL base do sistema React/Vite na Vercel ─────────────────
+const SISTEMA_URL = process.env.NEXT_PUBLIC_SISTEMA_URL || 'https://projetointegradornodereact.vercel.app';
 
 // ── Componente principal ─────────────────────────────────────
 export default function PaginaInstitucional() {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* ════════════════════════════════════════════════════
-          HEADER — Navegação Sticky
-      ════════════════════════════════════════════════════ */}
+      {/* HEADER — Navegação Sticky */}
       <header className="bg-fmp-900 text-white sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
@@ -174,15 +171,12 @@ export default function PaginaInstitucional() {
         </div>
       </header>
 
-      {/* ════════════════════════════════════════════════════
-          HERO — Chamada principal
-      ════════════════════════════════════════════════════ */}
+      {/* HERO — Chamada principal */}
       <section
         id="hero"
         className="relative bg-gradient-to-br from-fmp-900 via-fmp-800 to-fmp-600 text-white py-20 md:py-28 lg:py-36 overflow-hidden"
         aria-labelledby="hero-titulo"
       >
-        {/* Elementos decorativos de fundo */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute -top-20 -right-20 w-96 h-96 bg-fmp-700 rounded-full opacity-20 blur-3xl" />
           <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-sky-500 rounded-full opacity-15 blur-3xl" />
@@ -190,12 +184,10 @@ export default function PaginaInstitucional() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Badge institucional */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs sm:text-sm font-semibold px-4 sm:px-5 py-2 rounded-full mb-8">
             🎓 Faculdade Municipal de Palhoça · Projeto Integrador II · 2026.1
           </div>
 
-          {/* Título principal */}
           <h1
             id="hero-titulo"
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-6"
@@ -206,7 +198,6 @@ export default function PaginaInstitucional() {
             <span className="text-fmp-gold-400">Doações FMP</span>
           </h1>
 
-          {/* Subtítulo */}
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto mb-10 leading-relaxed">
             Doe alimentos, roupas ou material escolar às campanhas da COPER e veja
             suas boas ações se transformarem em{' '}
@@ -214,7 +205,6 @@ export default function PaginaInstitucional() {
             digitalizado, transparente e auditável.
           </p>
 
-          {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href={`${SISTEMA_URL}/campanhas`}
@@ -234,9 +224,7 @@ export default function PaginaInstitucional() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          MÉTRICAS — Cards de Impacto
-      ════════════════════════════════════════════════════ */}
+      {/* MÉTRICAS — Cards de Impacto */}
       <section
         id="main-content"
         className="py-12 md:py-16 bg-white border-b border-gray-100"
@@ -281,9 +269,7 @@ export default function PaginaInstitucional() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          SOBRE — O Projeto e a FMP
-      ════════════════════════════════════════════════════ */}
+      {/* SOBRE — O Projeto e a FMP */}
       <section
         id="sobre"
         className="py-16 md:py-20 lg:py-24 bg-gray-50"
@@ -292,7 +278,6 @@ export default function PaginaInstitucional() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-            {/* Coluna de texto */}
             <div>
               <span className="text-fmp-700 font-semibold text-xs uppercase tracking-widest">
                 Sobre o Projeto
@@ -316,7 +301,6 @@ export default function PaginaInstitucional() {
                 impacto real e reconhecimento acadêmico.
               </p>
 
-              {/* Diferenciais */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {DIFERENCIAIS.map(({ icon, label }) => (
                   <div
@@ -330,7 +314,6 @@ export default function PaginaInstitucional() {
               </div>
             </div>
 
-            {/* Cartão institucional */}
             <div className="bg-gradient-to-br from-fmp-900 to-fmp-600 rounded-3xl p-8 text-white shadow-2xl">
               <div className="text-5xl mb-6" aria-hidden="true">🏛️</div>
               <h3 className="text-xl sm:text-2xl font-extrabold mb-3">
@@ -359,9 +342,7 @@ export default function PaginaInstitucional() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          COMO FUNCIONA — Processo em 4 Passos
-      ════════════════════════════════════════════════════ */}
+      {/* COMO FUNCIONA — Processo em 4 Passos */}
       <section
         id="como-funciona"
         className="py-16 md:py-20 lg:py-24 bg-white"
@@ -389,7 +370,6 @@ export default function PaginaInstitucional() {
                 key={passo}
                 className="relative flex flex-col items-center text-center p-6 sm:p-8 bg-gray-50 rounded-2xl border border-gray-200 hover:border-fmp-300 hover:bg-fmp-50 hover:-translate-y-2 transition-all duration-300 group"
               >
-                {/* Conector visual entre cards (somente desktop) */}
                 {idx < COMO_FUNCIONA.length - 1 && (
                   <div
                     className="hidden lg:block absolute top-10 -right-3 w-6 h-0.5 bg-fmp-200 z-10"
@@ -397,12 +377,10 @@ export default function PaginaInstitucional() {
                   />
                 )}
 
-                {/* Número do passo */}
                 <span className="text-xs font-extrabold text-fmp-500 uppercase tracking-widest mb-3">
                   Passo {passo}
                 </span>
 
-                {/* Ícone */}
                 <span
                   className="text-4xl sm:text-5xl mb-4 group-hover:scale-110 transition-transform duration-300"
                   aria-hidden="true"
@@ -418,9 +396,7 @@ export default function PaginaInstitucional() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          CAMPANHAS EM DESTAQUE
-      ════════════════════════════════════════════════════ */}
+      {/* CAMPANHAS EM DESTAQUE */}
       <section
         id="campanhas"
         className="py-16 md:py-20 lg:py-24 bg-gray-50"
@@ -451,11 +427,9 @@ export default function PaginaInstitucional() {
                   className="bg-white rounded-2xl border border-gray-200 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col"
                   aria-label={`Campanha: ${titulo}`}
                 >
-                  {/* Barra de identidade visual no topo */}
                   <div className="h-1.5 bg-gradient-to-r from-fmp-900 to-fmp-500" aria-hidden="true" />
 
                   <div className="p-6 flex flex-col flex-1">
-                    {/* Cabeçalho do card */}
                     <div className="flex items-start justify-between mb-4">
                       <span className="text-3xl" aria-hidden="true">{icon}</span>
                       <div className="flex gap-2 flex-wrap justify-end">
@@ -473,13 +447,11 @@ export default function PaginaInstitucional() {
                     <h3 className="text-base font-bold text-gray-900 mb-2">{titulo}</h3>
                     <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">{desc}</p>
 
-                    {/* Badge de horas */}
                     <div className="flex items-center gap-1.5 text-xs font-semibold text-fmp-700 bg-fmp-50 px-3 py-1.5 rounded-full w-fit mb-4">
                       <span aria-hidden="true">⭐</span>
                       {horasPorItem} complementar
                     </div>
 
-                    {/* Barra de progresso */}
                     <div className="space-y-1.5 mb-5">
                       <div className="flex justify-between text-xs text-gray-400">
                         <span>Meta atingida</span>
@@ -504,7 +476,6 @@ export default function PaginaInstitucional() {
                       </div>
                     </div>
 
-                    {/* CTA do card */}
                     <a
                       href={`${SISTEMA_URL}/doar`}
                       className="w-full text-center bg-fmp-800 hover:bg-fmp-900 text-white font-semibold text-sm py-3 rounded-xl transition-all duration-200 hover:shadow-lg"
@@ -517,7 +488,6 @@ export default function PaginaInstitucional() {
             })}
           </div>
 
-          {/* Link para todas as campanhas */}
           <div className="text-center mt-10">
             <a
               href={`${SISTEMA_URL}/campanhas`}
@@ -530,9 +500,7 @@ export default function PaginaInstitucional() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          EQUIPE — Desenvolvedores
-      ════════════════════════════════════════════════════ */}
+      {/* EQUIPE — Desenvolvedores */}
       <section
         id="equipe"
         className="py-16 md:py-20 lg:py-24 bg-white"
@@ -552,7 +520,7 @@ export default function PaginaInstitucional() {
             Desenvolvido por alunos de ADS sob orientação do Prof. Rafael Novo da Rosa · 2026.1
           </p>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {EQUIPE.map(({ nome, papel }) => {
               const iniciais = nome
                 .split(' ')
@@ -564,7 +532,6 @@ export default function PaginaInstitucional() {
                   key={nome}
                   className="flex flex-col items-center p-5 sm:p-6 bg-gray-50 rounded-2xl border border-gray-200 hover:border-fmp-300 hover:bg-fmp-50 transition-all duration-300 hover:-translate-y-1 group"
                 >
-                  {/* Avatar com iniciais */}
                   <div
                     className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-fmp-800 to-fmp-500 rounded-2xl flex items-center justify-center text-white font-extrabold text-lg sm:text-xl shadow-md mb-4 group-hover:scale-105 transition-transform duration-300"
                     aria-hidden="true"
@@ -581,9 +548,7 @@ export default function PaginaInstitucional() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          CTA FINAL — Chamada para ação
-      ════════════════════════════════════════════════════ */}
+      {/* CTA FINAL — Chamada para ação */}
       <section
         className="py-16 md:py-20 bg-gradient-to-br from-fmp-900 via-fmp-800 to-fmp-600 text-white"
         aria-label="Chamada para ação principal"
@@ -617,9 +582,7 @@ export default function PaginaInstitucional() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════
-          FOOTER — Rodapé Institucional
-      ════════════════════════════════════════════════════ */}
+      {/* FOOTER — Rodapé Institucional */}
       <footer className="bg-fmp-900 text-white py-12" role="contentinfo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -731,7 +694,7 @@ export default function PaginaInstitucional() {
                 Sistema desenvolvido para fins acadêmicos.
               </p>
               <p>
-                Eduardo Silva · Davi Aravechia · Lucas Schutz · Vitor Emanuel
+                Eduardo Silva · Davi Aravechia · Lucas Schutz
               </p>
             </div>
           </div>
